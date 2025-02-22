@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE" />
@@ -27,5 +28,11 @@
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ReControl.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ReControl.ico" />
   </ItemGroup>
 </Project>
