@@ -3,5 +3,6 @@
     x:Class="ReControl.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="ReControl">
+    Title="ReControl"
+    Closed="OnClosed">
 </Window> 

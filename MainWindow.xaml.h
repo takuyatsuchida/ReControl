@@ -6,7 +6,13 @@ namespace winrt::ReControl::implementation
 {
     struct MainWindow : MainWindowT<MainWindow>
     {
-        MainWindow() = default;
+        MainWindow();
+        void OnClosed(const IInspectable &, const IInspectable &) const;
+
+      private:
+        void AddNotifyIcon() const;
+        void DeleteNotifyIcon() const;
+        [[nodiscard]] HWND GetWindowHandle() const;
     };
 } // namespace winrt::ReControl::implementation
 

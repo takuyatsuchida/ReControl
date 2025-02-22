@@ -1,4 +1,5 @@
 BasedOnStyle: Microsoft
+AllowShortIfStatementsOnASingleLine: true
 NamespaceIndentation: All
 IncludeCategories:
   - Regex: '^"pch\.h"$'
