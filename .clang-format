@@ -1,1 +1,5 @@
 BasedOnStyle: Microsoft
+NamespaceIndentation: All
+IncludeCategories:
+  - Regex: '^"pch\.h"$'
+    Priority: -1
