@@ -17,6 +17,8 @@ namespace winrt::ReControl::implementation
         static LRESULT Subclassproc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass,
                                     DWORD_PTR dwRefData);
         static void ShowNotifyIconMenu(HWND hWnd);
+        static void ShowAboutDialog();
+        static std::wstring GetVersionInfo(const std::wstring &key);
     };
 } // namespace winrt::ReControl::implementation
 

@@ -11,6 +11,7 @@
 
 #pragma comment(lib, "Comctl32.lib")
 #pragma comment(lib, "Shell32.lib")
+#pragma comment(lib, "Version.lib")
 
 #define WM_NOTIFYICON (WM_APP + 1)
 
@@ -74,6 +75,12 @@ namespace winrt::ReControl::implementation
             return 0;
         }
 
+        if (uMsg == WM_COMMAND && wParam == ID_NOTIFYICONMENU_ABOUT)
+        {
+            ShowAboutDialog();
+            return 0;
+        }
+
         if (uMsg == WM_COMMAND && wParam == ID_NOTIFYICONMENU_EXIT)
         {
             Application::Current().Exit();
@@ -94,4 +101,31 @@ namespace winrt::ReControl::implementation
         DestroyMenu(hMenu);
         PostMessage(hWnd, WM_NULL, 0, 0);
     }
+
+    void MainWindow::ShowAboutDialog()
+    {
+        const auto text = std::format(L"{} {}\n{}", GetVersionInfo(L"ProductName"), GetVersionInfo(L"ProductVersion"),
+                                      GetVersionInfo(L"LegalCopyright"));
+        MessageBox(nullptr, text.c_str(), L"About", MB_OK | MB_ICONINFORMATION);
+    }
+
+    std::wstring MainWindow::GetVersionInfo(const std::wstring &key)
+    {
+        WCHAR fileName[MAX_PATH];
+        GetModuleFileName(nullptr, fileName, MAX_PATH);
+
+        DWORD handle = 0;
+        const DWORD size = GetFileVersionInfoSize(fileName, &handle);
+
+        std::vector<BYTE> data(size);
+        GetFileVersionInfo(fileName, handle, size, data.data());
+
+        void *buffer = nullptr;
+        UINT length = 0;
+        const auto query = L"\\StringFileInfo\\040904b0\\" + key; // English (United States)
+        VerQueryValue(data.data(), query.c_str(), &buffer, &length);
+
+        return {static_cast<wchar_t *>(buffer)};
+    }
+
 } // namespace winrt::ReControl::implementation
