@@ -91,6 +91,7 @@ namespace winrt::ReControl::implementation
         const auto hSubMenu = GetSubMenu(hMenu, 0);
         SetForegroundWindow(hWnd);
         TrackPopupMenu(hSubMenu, TPM_LEFTBUTTON | TPM_LEFTALIGN | TPM_BOTTOMALIGN, pt.x, pt.y, 0, hWnd, nullptr);
+        DestroyMenu(hMenu);
         PostMessage(hWnd, WM_NULL, 0, 0);
     }
 } // namespace winrt::ReControl::implementation
