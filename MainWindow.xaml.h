@@ -13,6 +13,9 @@ namespace winrt::ReControl::implementation
         void AddNotifyIcon() const;
         void DeleteNotifyIcon() const;
         [[nodiscard]] HWND GetWindowHandle() const;
+        static LRESULT Subclassproc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass,
+                                    DWORD_PTR dwRefData);
+        static void ShowNotifyIconMenu(HWND hWnd);
     };
 } // namespace winrt::ReControl::implementation
 
