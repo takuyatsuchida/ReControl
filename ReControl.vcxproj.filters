@@ -12,10 +12,12 @@
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="KeyInterceptor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="KeyInterceptor.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE" />

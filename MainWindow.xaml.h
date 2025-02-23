@@ -19,6 +19,9 @@ namespace winrt::ReControl::implementation
         static void ShowNotifyIconMenu(HWND hWnd);
         static void ShowAboutDialog();
         static std::wstring GetVersionInfo(const std::wstring &key);
+        static void StartKeyInterceptor();
+        static void StopKeyInterceptor();
+        static void NotifyLastError(const std::wstring &errorFormat);
     };
 } // namespace winrt::ReControl::implementation
 

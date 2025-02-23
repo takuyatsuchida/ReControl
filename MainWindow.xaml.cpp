@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MainWindow.xaml.h"
+#include "KeyInterceptor.h"
 #include "resource.h"
 #include <commctrl.h>
 #include <format>
@@ -24,10 +25,12 @@ namespace winrt::ReControl::implementation
     {
         this->AppWindow().Hide();
         AddNotifyIcon();
+        StartKeyInterceptor();
     }
 
     void MainWindow::OnClosed(const IInspectable &, const IInspectable &) const
     {
+        StopKeyInterceptor();
         DeleteNotifyIcon();
     }
 
@@ -128,4 +131,25 @@ namespace winrt::ReControl::implementation
         return {static_cast<wchar_t *>(buffer)};
     }
 
+    void MainWindow::StartKeyInterceptor()
+    {
+        if (const auto hHook = KeyInterceptor::StartKeyInterceptor(); hHook != nullptr) return;
+
+        NotifyLastError(L"Failed to start Key Interceptor.\nError: {}");
+        Application::Current().Exit();
+    }
+
+    void MainWindow::StopKeyInterceptor()
+    {
+        if (const auto result = KeyInterceptor::StopKeyInterceptor(); !result)
+            NotifyLastError(L"Failed to stop Key Interceptor.\nError: {}");
+    }
+
+    void MainWindow::NotifyLastError(const std::wstring &errorFormat)
+    {
+        const auto errorMessage = KeyInterceptor::GetLastErrorMessage();
+        const std::wstring message = std::vformat(errorFormat, std::make_wformat_args(errorMessage));
+        MessageBox(nullptr, message.c_str(), L"Error", MB_OK | MB_ICONERROR);
+        KeyInterceptor::FreeLastErrorMessage(errorMessage);
+    }
 } // namespace winrt::ReControl::implementation
