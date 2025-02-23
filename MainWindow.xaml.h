@@ -6,7 +6,8 @@ namespace winrt::ReControl::implementation
 {
     struct MainWindow : MainWindowT<MainWindow>
     {
-        MainWindow();
+        MainWindow() = default;
+        void OnActivated(const IInspectable &, const IInspectable &) const;
         void OnClosed(const IInspectable &, const IInspectable &) const;
 
       private:

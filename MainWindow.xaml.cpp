@@ -4,6 +4,7 @@
 #include <commctrl.h>
 #include <format>
 #include <microsoft.ui.xaml.window.h>
+#include <winrt/Microsoft.UI.Windowing.h>
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
 #endif
@@ -18,8 +19,9 @@ using namespace Microsoft::UI::Xaml;
 
 namespace winrt::ReControl::implementation
 {
-    MainWindow::MainWindow() : MainWindowT()
+    void MainWindow::OnActivated(const IInspectable &, const IInspectable &) const
     {
+        this->AppWindow().Hide();
         AddNotifyIcon();
     }
 
