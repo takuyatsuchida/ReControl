@@ -22,6 +22,7 @@ namespace winrt::ReControl::implementation
         static void StartKeyInterceptor();
         static void StopKeyInterceptor();
         static void NotifyLastError(const std::wstring &errorFormat);
+        static void ApplySystemDarkModeToMenu();
     };
 } // namespace winrt::ReControl::implementation
 

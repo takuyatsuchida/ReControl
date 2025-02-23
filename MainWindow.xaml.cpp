@@ -24,6 +24,7 @@ namespace winrt::ReControl::implementation
     void MainWindow::OnActivated(const IInspectable &, const IInspectable &) const
     {
         this->AppWindow().Hide();
+        ApplySystemDarkModeToMenu();
         AddNotifyIcon();
         StartKeyInterceptor();
     }
@@ -107,8 +108,8 @@ namespace winrt::ReControl::implementation
 
     void MainWindow::ShowAboutDialog()
     {
-        const auto message = std::format(L"{} {}\n{}", GetVersionInfo(L"ProductName"), GetVersionInfo(L"ProductVersion"),
-                                      GetVersionInfo(L"LegalCopyright"));
+        const auto message = std::format(L"{} {}\n{}", GetVersionInfo(L"ProductName"),
+                                         GetVersionInfo(L"ProductVersion"), GetVersionInfo(L"LegalCopyright"));
         MessageBox(nullptr, message.c_str(), L"About", MB_OK | MB_ICONINFORMATION);
     }
 
@@ -150,5 +151,27 @@ namespace winrt::ReControl::implementation
         const std::wstring message = std::vformat(errorFormat, std::make_wformat_args(errorMessage));
         MessageBox(nullptr, message.c_str(), L"Error", MB_OK | MB_ICONERROR);
         KeyInterceptor::FreeLastErrorMessage(errorMessage);
+    }
+
+    void MainWindow::ApplySystemDarkModeToMenu()
+    {
+        enum class PreferredAppMode // NOLINT(performance-enum-size)
+        {
+            Default,
+            AllowDark,
+            ForceDark,
+            ForceLight
+        };
+
+        const HMODULE hModule = LoadLibraryEx(L"uxtheme.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+        if (!hModule) return;
+
+        const auto setPreferredAppMode = reinterpret_cast<PreferredAppMode(WINAPI *)(PreferredAppMode appMode)>(
+            GetProcAddress(hModule, MAKEINTRESOURCEA(135)));
+        if (!setPreferredAppMode) return;
+
+        setPreferredAppMode(PreferredAppMode::AllowDark);
+
+        FreeLibrary(hModule);
     }
 } // namespace winrt::ReControl::implementation
