@@ -61,16 +61,16 @@ namespace winrt::ReControl::implementation
     HWND MainWindow::GetWindowHandle() const
     {
         HWND hWnd = nullptr;
-        const auto result = this->try_as<IWindowNative>()->get_WindowHandle(&hWnd);
-        if (result == S_OK) return hWnd;
+        const auto hResult = this->try_as<IWindowNative>()->get_WindowHandle(&hWnd);
+        if (hResult == S_OK) return hWnd;
 
-        const auto errorMessage = std::format(L"Failed to get window handle.\nError code: 0x{:08X}", result);
-        MessageBox(nullptr, errorMessage.c_str(), L"Error", MB_OK | MB_ICONERROR);
+        const auto message = std::format(L"Failed to get window handle.\nError code: 0x{:08X}", hResult);
+        MessageBox(nullptr, message.c_str(), L"Error", MB_OK | MB_ICONERROR);
         return nullptr;
     }
 
     LRESULT MainWindow::Subclassproc(const HWND hWnd, const UINT uMsg, const WPARAM wParam, const LPARAM lParam,
-                                     UINT_PTR uIdSubclass, DWORD_PTR dwRefData)
+                                     UINT_PTR, DWORD_PTR)
     {
         if (uMsg == WM_NOTIFYICON && lParam == WM_RBUTTONUP)
         {
@@ -95,21 +95,21 @@ namespace winrt::ReControl::implementation
 
     void MainWindow::ShowNotifyIconMenu(const HWND hWnd)
     {
-        POINT pt;
-        GetCursorPos(&pt);
+        POINT point;
+        GetCursorPos(&point);
         const auto hMenu = LoadMenu(GetModuleHandle(nullptr), MAKEINTRESOURCE(IDR_NOTIFYICONMENU));
         const auto hSubMenu = GetSubMenu(hMenu, 0);
         SetForegroundWindow(hWnd);
-        TrackPopupMenu(hSubMenu, TPM_LEFTBUTTON | TPM_LEFTALIGN | TPM_BOTTOMALIGN, pt.x, pt.y, 0, hWnd, nullptr);
+        TrackPopupMenu(hSubMenu, TPM_LEFTBUTTON | TPM_LEFTALIGN | TPM_BOTTOMALIGN, point.x, point.y, 0, hWnd, nullptr);
         DestroyMenu(hMenu);
         PostMessage(hWnd, WM_NULL, 0, 0);
     }
 
     void MainWindow::ShowAboutDialog()
     {
-        const auto text = std::format(L"{} {}\n{}", GetVersionInfo(L"ProductName"), GetVersionInfo(L"ProductVersion"),
+        const auto message = std::format(L"{} {}\n{}", GetVersionInfo(L"ProductName"), GetVersionInfo(L"ProductVersion"),
                                       GetVersionInfo(L"LegalCopyright"));
-        MessageBox(nullptr, text.c_str(), L"About", MB_OK | MB_ICONINFORMATION);
+        MessageBox(nullptr, message.c_str(), L"About", MB_OK | MB_ICONINFORMATION);
     }
 
     std::wstring MainWindow::GetVersionInfo(const std::wstring &key)
@@ -117,11 +117,10 @@ namespace winrt::ReControl::implementation
         WCHAR fileName[MAX_PATH];
         GetModuleFileName(nullptr, fileName, MAX_PATH);
 
-        DWORD handle = 0;
-        const DWORD size = GetFileVersionInfoSize(fileName, &handle);
+        const auto size = GetFileVersionInfoSize(fileName, nullptr);
 
         std::vector<BYTE> data(size);
-        GetFileVersionInfo(fileName, handle, size, data.data());
+        GetFileVersionInfo(fileName, 0, size, data.data());
 
         void *buffer = nullptr;
         UINT length = 0;
