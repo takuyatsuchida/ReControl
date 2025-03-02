@@ -18,7 +18,7 @@ namespace KeyInterceptor
     {
         if (hHook != nullptr) return hHook;
 
-        hHook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, GetModuleHandle(nullptr), 0);
+        hHook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, nullptr, 0);
 
         return hHook;
     }
