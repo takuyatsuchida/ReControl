@@ -4,20 +4,18 @@
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="MainWindow.idl" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="KeyInterceptor.cpp" />
+    <ClCompile Include="NotifyIcon.cpp" />
+    <ClCompile Include="DarkModeEnabler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="KeyInterceptor.h" />
+    <ClInclude Include="NotifyIcon.h" />
+    <ClInclude Include="DarkModeEnabler.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE" />
@@ -36,5 +34,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="ReControl.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
   </ItemGroup>
 </Project>

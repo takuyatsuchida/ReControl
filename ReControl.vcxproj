@@ -135,6 +135,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DarkModeEnabler.h" />
     <ClInclude Include="KeyInterceptor.h" />
     <ClInclude Include="NotifyIcon.h" />
     <ClInclude Include="pch.h" />
@@ -147,6 +148,7 @@
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DarkModeEnabler.cpp" />
     <ClCompile Include="KeyInterceptor.cpp" />
     <ClCompile Include="NotifyIcon.cpp" />
     <ClCompile Include="pch.cpp">

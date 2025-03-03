@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "NotifyIcon.h"
+#include "DarkModeEnabler.h"
 #include "KeyInterceptor.h"
 #include "resource.h"
 
@@ -84,6 +85,20 @@ namespace
         MessageBox(nullptr, message.c_str(), L"Error", MB_OK | MB_ICONERROR);
     }
 
+    void RegisterDarkModeEnabler()
+    {
+        if (DarkModeEnabler::RegisterDarkModeEnabler()) return;
+
+        NotifyLastError(L"Failed to register Dark Mode Enabler.\nError: {}");
+    }
+
+    void UnregisterDarkModeEnabler()
+    {
+        if (DarkModeEnabler::UnregisterDarkModeEnabler()) return;
+
+        NotifyLastError(L"Failed to unregister Dark Mode Enabler.\nError: {}");
+    }
+
     void StartKeyInterceptor()
     {
         if (KeyInterceptor::StartKeyInterceptor()) return;
@@ -102,26 +117,28 @@ namespace
     {
         switch (uMsg)
         {
-        case WM_CREATE: {
+        case WM_CREATE:
             AddNotifyIcon(hWnd);
+            RegisterDarkModeEnabler();
             StartKeyInterceptor();
             return 0;
-        }
-        case WM_DESTROY: {
+
+        case WM_DESTROY:
             StopKeyInterceptor();
+            UnregisterDarkModeEnabler();
             DeleteNotifyIcon(hWnd);
             PostQuitMessage(0);
             return 0;
-        }
-        case WM_NOTIFYICON: {
+
+        case WM_NOTIFYICON:
             if (lParam == WM_RBUTTONUP)
             {
                 ShowNotifyIconMenu(hWnd);
                 return 0;
             }
             break;
-        }
-        case WM_COMMAND: {
+
+        case WM_COMMAND:
             if (wParam == ID_NOTIFYICONMENU_ABOUT)
             {
                 ShowAboutDialog();
@@ -133,7 +150,7 @@ namespace
                 return 0;
             }
             break;
-        }
+
         default:
             break;
         }

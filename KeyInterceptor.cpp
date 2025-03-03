@@ -5,7 +5,7 @@ namespace
 {
     HHOOK hHook = nullptr;
 
-    LRESULT LowLevelKeyboardProc(const int code, const WPARAM wParam, const LPARAM lParam)
+    LRESULT CALLBACK LowLevelKeyboardProc(const int code, const WPARAM wParam, const LPARAM lParam)
     {
         return CallNextHookEx(nullptr, code, wParam, lParam);
     }
@@ -27,7 +27,10 @@ namespace KeyInterceptor
         if (!hHook) return true;
 
         const auto bResult = UnhookWindowsHookEx(hHook);
-        if (bResult) hHook = nullptr;
+        if (bResult)
+        {
+            hHook = nullptr;
+        }
 
         return bResult;
     }
