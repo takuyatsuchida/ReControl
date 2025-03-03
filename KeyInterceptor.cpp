@@ -5,13 +5,13 @@ namespace
 {
     HHOOK hHook = nullptr;
 
-    LRESULT CALLBACK LowLevelKeyboardProc(const int code, const WPARAM wParam, const LPARAM lParam)
+    LRESULT CALLBACK LowLevelKeyboardProc(const int nCode, const WPARAM wParam, const LPARAM lParam)
     {
-        return CallNextHookEx(nullptr, code, wParam, lParam);
+        return CallNextHookEx(nullptr, nCode, wParam, lParam);
     }
 } // namespace
 
-namespace KeyInterceptor
+namespace ReControl
 {
     HHOOK StartKeyInterceptor()
     {
@@ -34,4 +34,4 @@ namespace KeyInterceptor
 
         return bResult;
     }
-} // namespace KeyInterceptor
+} // namespace ReControl

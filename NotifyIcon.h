@@ -1,6 +1,6 @@
 #pragma once
 
-namespace NotifyIcon
+namespace ReControl
 {
     void InitializeNotifyIcon();
-} // namespace NotifyIcon
+} // namespace ReControl

@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-namespace KeyInterceptor
+namespace ReControl
 {
     HHOOK StartKeyInterceptor();
     bool StopKeyInterceptor();
-} // namespace KeyInterceptor
+} // namespace ReControl

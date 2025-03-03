@@ -87,28 +87,28 @@ namespace
 
     void RegisterDarkModeEnabler()
     {
-        if (DarkModeEnabler::RegisterDarkModeEnabler()) return;
+        if (ReControl::RegisterDarkModeEnabler()) return;
 
         NotifyLastError(L"Failed to register Dark Mode Enabler.\nError: {}");
     }
 
     void UnregisterDarkModeEnabler()
     {
-        if (DarkModeEnabler::UnregisterDarkModeEnabler()) return;
+        if (ReControl::UnregisterDarkModeEnabler()) return;
 
         NotifyLastError(L"Failed to unregister Dark Mode Enabler.\nError: {}");
     }
 
     void StartKeyInterceptor()
     {
-        if (KeyInterceptor::StartKeyInterceptor()) return;
+        if (ReControl::StartKeyInterceptor()) return;
 
         NotifyLastError(L"Failed to start Key Interceptor.\nError: {}");
     }
 
     void StopKeyInterceptor()
     {
-        if (KeyInterceptor::StopKeyInterceptor()) return;
+        if (ReControl::StopKeyInterceptor()) return;
 
         NotifyLastError(L"Failed to stop Key Interceptor.\nError: {}");
     }
@@ -159,7 +159,7 @@ namespace
     }
 } // namespace
 
-namespace NotifyIcon
+namespace ReControl
 {
     void InitializeNotifyIcon()
     {
@@ -174,4 +174,4 @@ namespace NotifyIcon
         CreateWindow(L"NotifyIconClass", L"ReControl", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
                      CW_USEDEFAULT, nullptr, nullptr, hInstance, nullptr);
     }
-} // namespace NotifyIcon
+} // namespace ReControl

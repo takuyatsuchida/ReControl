@@ -155,7 +155,7 @@ namespace
     }
 } // namespace
 
-namespace DarkModeEnabler
+namespace ReControl
 {
     HHOOK RegisterDarkModeEnabler()
     {
@@ -194,4 +194,4 @@ namespace DarkModeEnabler
 
         return bResult;
     }
-} // namespace DarkModeEnabler
+} // namespace ReControl

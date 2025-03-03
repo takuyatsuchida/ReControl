@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-namespace DarkModeEnabler
+namespace ReControl
 {
     HHOOK RegisterDarkModeEnabler();
     bool UnregisterDarkModeEnabler();
-} // namespace DarkModeEnabler
+} // namespace ReControl
