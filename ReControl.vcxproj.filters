@@ -1,41 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
+    <ClCompile Include="DarkModeEnabler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyInterceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NotifyIcon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>XAML Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp" />
-    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="KeyInterceptor.cpp" />
-    <ClCompile Include="NotifyIcon.cpp" />
-    <ClCompile Include="DarkModeEnabler.cpp" />
+    <ClInclude Include="DarkModeEnabler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyInterceptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NotifyIcon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="KeyInterceptor.h" />
-    <ClInclude Include="NotifyIcon.h" />
-    <ClInclude Include="DarkModeEnabler.h" />
+    <None Include=".clang-format">
+      <Filter>Project Files</Filter>
+    </None>
+    <None Include=".gitattributes">
+      <Filter>Project Files</Filter>
+    </None>
+    <None Include=".gitignore">
+      <Filter>Project Files</Filter>
+    </None>
+    <None Include="packages.config">
+      <Filter>Project Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="LICENSE" />
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{40375e84-32bf-4ad1-97ea-4d53bd5f9746}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{73aca782-3dcd-4717-ba4b-8de1dce0c5aa}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5c3c3b3b-3853-4ac8-a674-fa20a5ee26a0}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="XAML Files">
+      <UniqueIdentifier>{ff37f97b-471b-4f6e-9fdf-89764a9f5cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project Files">
+      <UniqueIdentifier>{e5c99941-83ab-4170-9644-0ba5203f793e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include=".gitignore" />
-    <None Include=".gitattributes" />
-    <None Include=".clang-format" />
+    <ApplicationDefinition Include="App.xaml">
+      <Filter>XAML Files</Filter>
+    </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
+    <ResourceCompile Include="ReControl.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ReControl.rc" />
+    <Image Include="ReControl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ReControl.ico" />
+    <Manifest Include="app.manifest">
+      <Filter>Resource Files</Filter>
+    </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="app.manifest" />
+    <Text Include="LICENSE">
+      <Filter>Project Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis">
+      <Filter>Project Files</Filter>
+    </Natvis>
   </ItemGroup>
 </Project>
