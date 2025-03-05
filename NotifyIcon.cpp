@@ -13,23 +13,25 @@ namespace
 
     void AddNotifyIcon(const HWND hWnd)
     {
-        NOTIFYICONDATA nid = {};
-        nid.cbSize = sizeof(NOTIFYICONDATA);
-        nid.hWnd = hWnd;
-        nid.uID = 1;
-        nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-        nid.uCallbackMessage = WM_NOTIFYICON;
-        nid.hIcon = LoadIcon(GetModuleHandle(nullptr), MAKEINTRESOURCE(IDI_APPICON));
-        wcscpy_s(nid.szTip, L"ReControl");
+        NOTIFYICONDATA nid{
+            .cbSize = sizeof(NOTIFYICONDATA),
+            .hWnd = hWnd,
+            .uID = 1,
+            .uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP,
+            .uCallbackMessage = WM_NOTIFYICON,
+            .hIcon = LoadIcon(GetModuleHandle(nullptr), MAKEINTRESOURCE(IDI_APPICON)),
+            .szTip = L"ReControl",
+        };
         Shell_NotifyIcon(NIM_ADD, &nid);
     }
 
     void DeleteNotifyIcon(const HWND hWnd)
     {
-        NOTIFYICONDATA nid = {};
-        nid.cbSize = sizeof(NOTIFYICONDATA);
-        nid.hWnd = hWnd;
-        nid.uID = 1;
+        NOTIFYICONDATA nid{
+            .cbSize = sizeof(NOTIFYICONDATA),
+            .hWnd = hWnd,
+            .uID = 1,
+        };
         Shell_NotifyIcon(NIM_DELETE, &nid);
     }
 
@@ -165,10 +167,11 @@ namespace ReControl
     {
         const auto hInstance = GetModuleHandle(nullptr);
 
-        WNDCLASS wndClass = {};
-        wndClass.lpfnWndProc = WndProc;
-        wndClass.hInstance = hInstance;
-        wndClass.lpszClassName = L"NotifyIconClass";
+        WNDCLASS wndClass{
+            .lpfnWndProc = WndProc,
+            .hInstance = hInstance,
+            .lpszClassName = L"NotifyIconClass",
+        };
         RegisterClass(&wndClass);
 
         CreateWindow(L"NotifyIconClass", L"ReControl", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
