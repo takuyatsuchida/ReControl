@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "KeyInterceptor.h"
+#include "KeyBindingsGlobal.h"
 
 namespace
 {
@@ -7,6 +8,11 @@ namespace
 
     LRESULT CALLBACK LowLevelKeyboardProc(const int nCode, const WPARAM wParam, const LPARAM lParam)
     {
+        if (nCode == HC_ACTION)
+        {
+            if (ReControl::KeyBindings::ProcessKeyBindingsGlobal(wParam, lParam)) return 1;
+        }
+
         return CallNextHookEx(nullptr, nCode, wParam, lParam);
     }
 } // namespace
