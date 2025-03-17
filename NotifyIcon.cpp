@@ -67,8 +67,10 @@ namespace
 
     void ShowAboutDialog()
     {
-        const auto message = std::format(L"{} {}\n{}", GetVersionInfo(L"ProductName"),
-                                         GetVersionInfo(L"ProductVersion"), GetVersionInfo(L"LegalCopyright"));
+        const auto dedication = L"In loving memory of Merry,\nwho curled up in my lap while I coded.";
+        const auto message =
+            std::format(L"{} {}\n{}\n\n{}", GetVersionInfo(L"ProductName"), GetVersionInfo(L"ProductVersion"),
+                        GetVersionInfo(L"LegalCopyright"), dedication);
         MessageBox(nullptr, message.c_str(), L"About", MB_OK | MB_ICONINFORMATION);
     }
 
