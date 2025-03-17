@@ -16,6 +16,9 @@
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
       <Filter>XAML Files</Filter>
     </ClCompile>
+    <ClCompile Include="KeyBindingsGlobal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DarkModeEnabler.h">
@@ -31,6 +34,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NotifyIcon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBindingsGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DarkModeEnabler.h" />
+    <ClInclude Include="KeyBindingsGlobal.h" />
     <ClInclude Include="KeyInterceptor.h" />
     <ClInclude Include="NotifyIcon.h" />
     <ClInclude Include="pch.h" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DarkModeEnabler.cpp" />
+    <ClCompile Include="KeyBindingsGlobal.cpp" />
     <ClCompile Include="KeyInterceptor.cpp" />
     <ClCompile Include="NotifyIcon.cpp" />
     <ClCompile Include="pch.cpp">

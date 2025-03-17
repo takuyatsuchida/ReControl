@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "KeyInterceptor.h"
+#include "KeyBindingsGlobal.h"
 #include <shlwapi.h>
 
 namespace
@@ -40,6 +41,8 @@ namespace
 
         const auto exeName = GetForegroundApplicationExeName();
         if (IsForegroundApplicationExcluded(exeName)) return CallNextHookEx(nullptr, nCode, wParam, lParam);
+
+        if (ReControl::KeyBindings::ProcessKeyBindingsGlobal(wParam, lParam)) return 1;
 
         return CallNextHookEx(nullptr, nCode, wParam, lParam);
     }
