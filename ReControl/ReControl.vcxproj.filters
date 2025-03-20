@@ -44,12 +44,6 @@
     <None Include=".clang-format">
       <Filter>Project Files</Filter>
     </None>
-    <None Include=".gitattributes">
-      <Filter>Project Files</Filter>
-    </None>
-    <None Include=".gitignore">
-      <Filter>Project Files</Filter>
-    </None>
     <None Include="packages.config">
       <Filter>Project Files</Filter>
     </None>
@@ -93,11 +87,6 @@
     <Manifest Include="app.manifest">
       <Filter>Resource Files</Filter>
     </Manifest>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="LICENSE">
-      <Filter>Project Files</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis">
