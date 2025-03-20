@@ -5,9 +5,9 @@
 
 namespace
 {
-    HHOOK hHook = nullptr;
-
     const std::vector<std::wstring> EXCLUSION_LIST = {L"WindowsTerminal.exe", L"emacs.exe", L"gvim.exe"};
+
+    HHOOK hHook = nullptr;
 
     std::wstring GetForegroundApplicationExeName()
     {
