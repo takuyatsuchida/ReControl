@@ -1,0 +1,12 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="ReControlComponents" Directory="INSTALLFOLDER">
+      <Component>
+        <File Id="ReControl.exe" Source="ReControl.exe" />
+      </Component>
+      <Component>
+        <File Id="Microsoft.WindowsAppRuntime.Bootstrap.dll" Source="Microsoft.WindowsAppRuntime.Bootstrap.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,9 +1,11 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-  <Package Name="ReControl.Package" Manufacturer="TODO Manufacturer" Version="1.0.0.0" UpgradeCode="fc9097e0-7a6f-4531-9424-0ff7799c9242">
-    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
-
+  <Package Name="ReControl" Manufacturer="Takuya Tsuchida" Version="!(bind.fileVersion.ReControl.exe)" UpgradeCode="fc9097e0-7a6f-4531-9424-0ff7799c9242">
     <Feature Id="Main">
-      <ComponentGroupRef Id="ExampleComponents" />
+      <ComponentGroupRef Id="ReControlComponents" />
     </Feature>
+    <Icon Id="ReControl.ico" SourceFile="ReControl.ico" />
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+    <MediaTemplate EmbedCab="yes" />
+    <Property Id="ARPPRODUCTICON" Value="ReControl.ico" />
   </Package>
 </Wix>
