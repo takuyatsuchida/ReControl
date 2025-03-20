@@ -29,29 +29,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|ARM64">
-      <Configuration>Debug</Configuration>
-      <Platform>ARM64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|ARM64">
-      <Configuration>Release</Configuration>
-      <Platform>ARM64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Configuration">
@@ -89,17 +73,9 @@
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">stdcpp20</LanguageStandard>
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp20</LanguageStandard>
     </ClCompile>
-    <PreBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
-</Command>
-    </PreBuildEvent>
-    <PreBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
-</Command>
-    </PreBuildEvent>
+    <PreBuildEvent />
+    <PreBuildEvent />
     <PreBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
 </Command>
@@ -108,22 +84,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">stdcpp20</LanguageStandard>
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdcpp20</LanguageStandard>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PreBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
-</Command>
-    </PreBuildEvent>
-    <PreBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
-</Command>
-    </PreBuildEvent>
+    <PreBuildEvent />
+    <PreBuildEvent />
     <PreBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
 </Command>
