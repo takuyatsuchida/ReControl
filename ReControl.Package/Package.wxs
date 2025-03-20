@@ -1,0 +1,9 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="ReControl.Package" Manufacturer="TODO Manufacturer" Version="1.0.0.0" UpgradeCode="fc9097e0-7a6f-4531-9424-0ff7799c9242">
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+
+    <Feature Id="Main">
+      <ComponentGroupRef Id="ExampleComponents" />
+    </Feature>
+  </Package>
+</Wix>

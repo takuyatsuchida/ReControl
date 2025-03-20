@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 	EndProjectSection
 EndProject
+Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "ReControl.Package", "ReControl.Package\ReControl.Package.wixproj", "{9F7869E9-8D41-42B5-A8CA-96EB2358986A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -40,6 +42,18 @@ Global
 		{849039B0-1FDC-4A62-B5DD-D1D342CB9F9A}.Release|x86.ActiveCfg = Release|Win32
 		{849039B0-1FDC-4A62-B5DD-D1D342CB9F9A}.Release|x86.Build.0 = Release|Win32
 		{849039B0-1FDC-4A62-B5DD-D1D342CB9F9A}.Release|x86.Deploy.0 = Release|Win32
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Debug|ARM64.Build.0 = Debug|ARM64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Debug|x64.ActiveCfg = Debug|x64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Debug|x64.Build.0 = Debug|x64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Debug|x86.ActiveCfg = Debug|x86
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Debug|x86.Build.0 = Debug|x86
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Release|ARM64.ActiveCfg = Release|ARM64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Release|ARM64.Build.0 = Release|ARM64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Release|x64.ActiveCfg = Release|x64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Release|x64.Build.0 = Release|x64
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Release|x86.ActiveCfg = Release|x86
+		{9F7869E9-8D41-42B5-A8CA-96EB2358986A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
