@@ -2,6 +2,7 @@
   <PropertyGroup>
     <Configurations>Release</Configurations>
     <Platforms>x64</Platforms>
+    <SuppressSpecificWarnings>1076</SuppressSpecificWarnings>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReControl\ReControl.vcxproj" />

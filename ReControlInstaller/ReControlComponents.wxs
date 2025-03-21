@@ -2,10 +2,22 @@
   <Fragment>
     <ComponentGroup Id="ReControlComponents" Directory="INSTALLFOLDER">
       <Component>
-        <File Id="ReControl.exe" Source="ReControl.exe" />
+        <File Source="CoreMessagingXP.dll" />
       </Component>
       <Component>
-        <File Id="Microsoft.WindowsAppRuntime.Bootstrap.dll" Source="Microsoft.WindowsAppRuntime.Bootstrap.dll" />
+        <File Source="Microsoft.Internal.FrameworkUdk.dll" />
+      </Component>
+      <Component>
+        <File Source="Microsoft.UI.Windowing.Core.dll" />
+      </Component>
+      <Component>
+        <File Source="Microsoft.ui.xaml.dll" />
+      </Component>
+      <Component>
+        <File Source="Microsoft.WindowsAppRuntime.dll" />
+      </Component>
+      <Component>
+        <File Id="ReControl.exe" Source="ReControl.exe" />
       </Component>
     </ComponentGroup>
   </Fragment>
