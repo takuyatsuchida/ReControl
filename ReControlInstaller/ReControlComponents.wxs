@@ -17,7 +17,9 @@
         <File Source="Microsoft.WindowsAppRuntime.dll" />
       </Component>
       <Component>
-        <File Id="ReControl.exe" Source="ReControl.exe" />
+        <File Id="ReControl.exe" Source="ReControl.exe" KeyPath="yes" >
+          <Shortcut Advertise="yes" Directory="ProgramMenuFolder" Icon="ReControl.ico" Name="ReControl" WorkingDirectory="INSTALLFOLDER" />
+        </File>
       </Component>
     </ComponentGroup>
   </Fragment>
