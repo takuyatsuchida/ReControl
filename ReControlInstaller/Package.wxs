@@ -4,6 +4,9 @@
       <ComponentGroupRef Id="ReControlComponents" />
     </Feature>
     <Icon Id="ReControl.ico" SourceFile="ReControl.ico" />
+    <InstallExecuteSequence>
+      <ScheduleReboot After="InstallFinalize" />
+    </InstallExecuteSequence>
     <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
     <MediaTemplate EmbedCab="yes" />
     <Property Id="ARPPRODUCTICON" Value="ReControl.ico" />
