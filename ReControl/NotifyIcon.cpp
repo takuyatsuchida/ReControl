@@ -9,7 +9,13 @@
 
 namespace
 {
+    constexpr auto WINDOW_CLASS_NAME = L"ReControlNotifyIconClass";
     constexpr auto WM_NOTIFYICON = WM_APP + 1;
+
+    bool IsAlreadyRunning()
+    {
+        return FindWindow(WINDOW_CLASS_NAME, nullptr);
+    }
 
     void AddNotifyIcon(const HWND hWnd)
     {
@@ -167,16 +173,18 @@ namespace ReControl
 {
     void InitializeNotifyIcon()
     {
+        if (IsAlreadyRunning()) return PostQuitMessage(0);
+
         const auto hInstance = GetModuleHandle(nullptr);
 
         WNDCLASS wndClass{
             .lpfnWndProc = WndProc,
             .hInstance = hInstance,
-            .lpszClassName = L"NotifyIconClass",
+            .lpszClassName = WINDOW_CLASS_NAME,
         };
         RegisterClass(&wndClass);
 
-        CreateWindow(L"NotifyIconClass", L"ReControl", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+        CreateWindow(WINDOW_CLASS_NAME, L"ReControl", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
                      CW_USEDEFAULT, nullptr, nullptr, hInstance, nullptr);
     }
 } // namespace ReControl
