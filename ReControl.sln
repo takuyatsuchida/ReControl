@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 	EndProjectSection
 EndProject
-Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "ReControl.Package", "ReControl.Package\ReControl.Package.wixproj", "{9F7869E9-8D41-42B5-A8CA-96EB2358986A}"
+Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "ReControlInstaller", "ReControlInstaller\ReControlInstaller.wixproj", "{9F7869E9-8D41-42B5-A8CA-96EB2358986A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
