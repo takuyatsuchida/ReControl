@@ -20,6 +20,11 @@
         <File Id="ReControl.exe" Source="ReControl.exe" KeyPath="yes" >
           <Shortcut Advertise="yes" Directory="ProgramMenuFolder" Icon="ReControl.ico" Name="ReControl" WorkingDirectory="INSTALLFOLDER" />
         </File>
+        <RegistryValue Root="HKLM"
+                       Key="Software\Microsoft\Windows\CurrentVersion\Run"
+                       Name="ReControl"
+                       Type="string"
+                       Value="&quot;[INSTALLFOLDER]ReControl.exe&quot;" />
       </Component>
     </ComponentGroup>
   </Fragment>
