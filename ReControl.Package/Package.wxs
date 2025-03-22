@@ -2,6 +2,7 @@
   <Package Name="ReControl" Manufacturer="Takuya Tsuchida" Version="!(bind.fileVersion.ReControl.exe)" UpgradeCode="fc9097e0-7a6f-4531-9424-0ff7799c9242">
     <Feature Id="Main">
       <ComponentGroupRef Id="ReControlComponents" />
+      <ComponentGroupRef Id="ScancodeMapComponents" />
     </Feature>
     <Icon Id="ReControl.ico" SourceFile="ReControl.ico" />
     <InstallExecuteSequence>

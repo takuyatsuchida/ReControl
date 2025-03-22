@@ -1,0 +1,20 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="ScancodeMapComponents" Directory="INSTALLFOLDER">
+      <Component Condition="NOT SCANCODE_MAP_EXISTS">
+        <RegistryValue Root="HKLM"
+                       Key="SYSTEM\CurrentControlSet\Control\Keyboard Layout"
+                       Name="Scancode Map"
+                       Type="binary"
+                       Value="0000000000000000020000001DE03A0000000000" />
+      </Component>
+    </ComponentGroup>
+    <Property Id="SCANCODE_MAP_EXISTS">
+      <RegistrySearch Id="ScancodeMapSearch"
+                      Root="HKLM"
+                      Key="SYSTEM\CurrentControlSet\Control\Keyboard Layout"
+                      Name="Scancode Map"
+                      Type="raw" />
+    </Property>
+  </Fragment>
+</Wix>
