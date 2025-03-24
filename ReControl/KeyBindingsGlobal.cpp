@@ -165,7 +165,7 @@ namespace ReControl::KeyBindings
                 return true;
             }
 
-            case 'T': { // RControl + T -> Shift + Right, Shift + Delete, Left, Shift + Insert : SwapCharacters
+            case 'T': { // RControl + T -> Shift + Left, Shift + Delete, Right, Shift + Insert : SwapCharacters
                 if (!(GetAsyncKeyState(VK_RCONTROL) & 0x8000)) return false;
 
                 auto inputs = std::array{
