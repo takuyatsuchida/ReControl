@@ -51,7 +51,8 @@ namespace
         const auto hMenu = LoadMenu(GetModuleHandle(nullptr), MAKEINTRESOURCE(IDR_NOTIFYICONMENU));
         const auto hSubMenu = GetSubMenu(hMenu, 0);
         SetForegroundWindow(hWnd);
-        TrackPopupMenu(hSubMenu, TPM_LEFTBUTTON | TPM_LEFTALIGN | TPM_BOTTOMALIGN, point.x, point.y, 0, hWnd, nullptr);
+        TrackPopupMenu(hSubMenu, TPM_LEFTBUTTON | TPM_LEFTALIGN | TPM_BOTTOMALIGN, // NOLINT(misc-redundant-expression)
+                       point.x, point.y, 0, hWnd, nullptr);
         DestroyMenu(hMenu);
         PostMessage(hWnd, WM_NULL, 0, 0);
     }
