@@ -2,6 +2,8 @@
 #include "KeyInterceptor.h"
 #include "KeyBindingsGlobal.h"
 #include <shlwapi.h>
+#include <string>
+#include <vector>
 
 namespace
 {

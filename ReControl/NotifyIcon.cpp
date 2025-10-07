@@ -3,6 +3,9 @@
 #include "DarkModeEnabler.h"
 #include "KeyInterceptor.h"
 #include "resource.h"
+#include <format>
+#include <string>
+#include <vector>
 
 #pragma comment(lib, "Shell32.lib")
 #pragma comment(lib, "Version.lib")

@@ -3,6 +3,7 @@
 #include <dwmapi.h>
 #include <shlwapi.h>
 #include <uxtheme.h>
+#include <vector>
 
 #pragma comment(lib, "Comctl32.lib")
 #pragma comment(lib, "Dwmapi.lib")
