@@ -1,7 +1,7 @@
 ﻿<Project Sdk="WixToolset.Sdk/5.0.2">
   <Import Project="Version.props" />
   <PropertyGroup>
-    <OutputName>ReControl Installer $(ProductVersion)</OutputName>
+    <OutputName>ReControl-$(FileVersion)-$(Platform)</OutputName>
     <Configurations>Release</Configurations>
     <Platforms>x64</Platforms>
     <SuppressIces>ICE03</SuppressIces>
@@ -12,7 +12,4 @@
   <ItemGroup>
     <ProjectReference Include="..\ReControl\ReControl.vcxproj" />
   </ItemGroup>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="powershell -NoProfile -Command &quot;(Get-Item '$(SolutionDir)$(Platform)\$(Configuration)\ReControl\ReControl.exe').VersionInfo.ProductVersion | ForEach-Object { '&lt;Project>&lt;PropertyGroup>&lt;ProductVersion>' + $_ + '&lt;/ProductVersion>&lt;/PropertyGroup>&lt;/Project>' } | Out-File -FilePath 'Version.props'&quot;" />
-  </Target>
 </Project>

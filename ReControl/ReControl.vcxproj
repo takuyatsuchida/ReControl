@@ -76,12 +76,6 @@
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
-    <PreBuildEvent />
-    <PreBuildEvent />
-    <PreBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
-</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
@@ -93,12 +87,6 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PreBuildEvent />
-    <PreBuildEvent />
-    <PreBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PowerShell -ExecutionPolicy Bypass -Command "$build = (git rev-list --count HEAD); if (-not ((Get-Content \"$(ProjectName).rc\") -match \"FILEVERSION\s+\d+,\d+,$build,\d+\")) { (Get-Content \"$(ProjectName).rc\") -replace 'FILEVERSION\s+(\d+),(\d+),\d+,(\d+)', ('FILEVERSION $1,$2,' + $build + ',$3') | Set-Content \"$(ProjectName).rc\"; (Get-Content \"$(ProjectName).rc\") -replace 'VALUE\s+\"FileVersion\",\s+\"(\d+)\.(\d+)\.\d+\.(\d+)\"', ('VALUE \"FileVersion\", \"$1.$2.' + $build + '.$3\"') | Set-Content \"$(ProjectName).rc\" }"
-</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup Condition="'$(WindowsPackageType)'!='None' and Exists('Package.appxmanifest')">
     <AppxManifest Include="Package.appxmanifest">
