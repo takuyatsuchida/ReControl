@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="ReControl.ico" />
+    <Image Include="ReControl.png" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />

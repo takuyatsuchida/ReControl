@@ -82,6 +82,9 @@
     <Image Include="ReControl.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="ReControl.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest">
