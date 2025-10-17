@@ -59,19 +59,19 @@ Once installed, ReControl runs silently in the background and resides in the not
 
 The following shortcuts are available. They are triggered by the remapped <kbd>CapsLock</kbd>, which now acts as <kbd>RCtrl</kbd>.
 
-| Shortcut                      | Action                            | Equivalent Keys                                                       |
-| :---------------------------- | :-------------------------------- | :-------------------------------------------------------------------- |
-| <kbd>RCtrl</kbd>+<kbd>A</kbd> | Move to the beginning of the line | <kbd>Home</kbd>                                                       |
-| <kbd>RCtrl</kbd>+<kbd>B</kbd> | Move left by one character        | <kbd>Left</kbd>                                                       |
-| <kbd>RCtrl</kbd>+<kbd>D</kbd> | Delete the character to the right | <kbd>Delete</kbd>                                                     |
-| <kbd>RCtrl</kbd>+<kbd>E</kbd> | Move to the end of the line       | <kbd>End</kbd>                                                        |
-| <kbd>RCtrl</kbd>+<kbd>F</kbd> | Move right by one character       | <kbd>Right</kbd>                                                      |
-| <kbd>RCtrl</kbd>+<kbd>H</kbd> | Delete the character to the left  | <kbd>Backspace</kbd>                                                  |
-| <kbd>RCtrl</kbd>+<kbd>K</kbd> | Cut text to the end of the line   | <kbd>Shift</kbd>+<kbd>End</kbd> -> <kbd>Shift</kbd>+<kbd>Delete</kbd> |
-| <kbd>RCtrl</kbd>+<kbd>N</kbd> | Move to the next line             | <kbd>Down</kbd>                                                       |
-| <kbd>RCtrl</kbd>+<kbd>P</kbd> | Move to the previous line         | <kbd>Up</kbd>                                                         |
-| <kbd>RCtrl</kbd>+<kbd>T</kbd> | Transpose two characters          | -                                                                     |
-| <kbd>RCtrl</kbd>+<kbd>Y</kbd> | Paste text                        | <kbd>Shift</kbd>+<kbd>Insert</kbd>                                    |
+| Shortcut                      | Action                            | Equivalent Keys                                                                                                                  |
+| :---------------------------- | :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>RCtrl</kbd>+<kbd>A</kbd> | Move to the beginning of the line | <kbd>Home</kbd>                                                                                                                  |
+| <kbd>RCtrl</kbd>+<kbd>B</kbd> | Move left by one character        | <kbd>Left</kbd>                                                                                                                  |
+| <kbd>RCtrl</kbd>+<kbd>D</kbd> | Delete the character to the right | <kbd>Delete</kbd>                                                                                                                |
+| <kbd>RCtrl</kbd>+<kbd>E</kbd> | Move to the end of the line       | <kbd>End</kbd>                                                                                                                   |
+| <kbd>RCtrl</kbd>+<kbd>F</kbd> | Move right by one character       | <kbd>Right</kbd>                                                                                                                 |
+| <kbd>RCtrl</kbd>+<kbd>H</kbd> | Delete the character to the left  | <kbd>Backspace</kbd>                                                                                                             |
+| <kbd>RCtrl</kbd>+<kbd>K</kbd> | Cut text to the end of the line   | <kbd>Shift</kbd>+<kbd>End</kbd> -> <kbd>Shift</kbd>+<kbd>Delete</kbd>                                                            |
+| <kbd>RCtrl</kbd>+<kbd>N</kbd> | Move to the next line             | <kbd>Down</kbd>                                                                                                                  |
+| <kbd>RCtrl</kbd>+<kbd>P</kbd> | Move to the previous line         | <kbd>Up</kbd>                                                                                                                    |
+| <kbd>RCtrl</kbd>+<kbd>T</kbd> | Transpose two characters          | <kbd>Shift</kbd>+<kbd>Left</kbd> -> <kbd>Shift</kbd>+<kbd>Delete</kbd> -> <kbd>Right</kbd> -> <kbd>Shift</kbd>+<kbd>Insert</kbd> |
+| <kbd>RCtrl</kbd>+<kbd>Y</kbd> | Paste text                        | <kbd>Shift</kbd>+<kbd>Insert</kbd>                                                                                               |
 
 > [!WARNING]
 >
