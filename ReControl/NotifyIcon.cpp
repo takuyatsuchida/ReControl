@@ -14,6 +14,7 @@ namespace
 {
     constexpr auto WINDOW_CLASS_NAME = L"ReControlNotifyIconClass";
     constexpr auto WM_NOTIFYICON = WM_APP + 1;
+    const auto WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated");
 
     bool IsAlreadyRunning()
     {
@@ -167,6 +168,12 @@ namespace
 
         default:
             break;
+        }
+
+        if (uMsg == WM_TASKBARCREATED)
+        {
+            AddNotifyIcon(hWnd);
+            return 0;
         }
 
         return DefWindowProc(hWnd, uMsg, wParam, lParam);
