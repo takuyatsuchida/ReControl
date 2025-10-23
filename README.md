@@ -23,14 +23,13 @@ This creates a clear separation of concerns. <kbd>RCtrl</kbd> handles ReControlâ
 
 ## Installation
 
-1.  Download the latest installer `ReControl-x.x.x-x64.msi` from the [**Releases**](https://github.com/takuyatsuchida/ReControl/releases) page.
-2.  Run the downloaded `.msi` file to install the application.
-3.  Restart Windows to apply the key remapping.
+You can install using **WinGet** or download and run the **MSI installer**.
 
-The installer will:
-* Place the executable in `C:\Program Files\ReControl`.
-* Add the application to your startup programs through a registry key so that it runs automatically when Windows starts.
-* Create a `Scancode Map` entry in the Windows registry to remap <kbd>CapsLock</kbd> to <kbd>RCtrl</kbd>.
+During installation, the setup program automatically:
+
+- Places the executable in `C:\Program Files\ReControl`.
+- Adds the application to your startup programs via a registry key so it runs automatically when Windows starts.
+- Creates a `Scancode Map` entry in the Windows registry to remap <kbd>CapsLock</kbd> to <kbd>RCtrl</kbd>.
 
 > [!IMPORTANT]
 >
@@ -46,6 +45,23 @@ The installer will:
 >
 > A system restart is required for the changes to take effect.
 >
+
+### WinGet (Recommended)
+
+1. Open **Windows PowerShell**.
+2. Run the following command:
+
+   ```powershell
+   winget install recontrol
+   ```
+
+3. Restart Windows to apply the key remapping.
+
+### MSI Installer
+
+1. Download the latest installer `ReControl-x.x.x-x64.msi` from the [**Releases**](https://github.com/takuyatsuchida/ReControl/releases) page.
+2. Run the downloaded `.msi` file to install the application.
+3. Restart Windows to apply the key remapping.
 
 ### Uninstallation
 
@@ -82,9 +98,9 @@ The following shortcuts are available. They are triggered by the remapped <kbd>C
 
 To prevent conflicts, ReControl is disabled by default for the following applications:
 
-* Windows Terminal (`WindowsTerminal.exe`)
-* GNU Emacs (`emacs.exe`)
-* gVim (`gvim.exe`)
+- Windows Terminal (`WindowsTerminal.exe`)
+- GNU Emacs (`emacs.exe`)
+- gVim (`gvim.exe`)
 
 ## License
 
