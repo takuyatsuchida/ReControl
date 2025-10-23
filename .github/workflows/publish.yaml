@@ -1,0 +1,20 @@
+name: Publish
+run-name: Publish ${{ github.ref_name }}
+
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: Publish to WinGet
+        run: |
+          $url = ConvertFrom-Json '${{ toJSON(github.event.release.assets) }}' | Where-Object name -Like "ReControl-*-x64.msi" | Select-Object -ExpandProperty browser_download_url
+          $version = "${{ github.event.release.tag_name }}".Trim("v")
+          Invoke-WebRequest https://aka.ms/wingetcreate/latest -OutFile wingetcreate.exe
+          .\wingetcreate.exe update TakuyaTsuchida.ReControl --version "$version" --urls "$url" --submit
+        env:
+          WINGET_CREATE_GITHUB_TOKEN: ${{ secrets.WINGET_CREATE_GITHUB_TOKEN }}
