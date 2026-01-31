@@ -1,0 +1,20 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".github/workflows/publish.yaml" />
+    <File Path=".github/workflows/release.yaml" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="ReControl.Package/ReControl.Package.wixproj" Type="b7dd6f7e-def8-4e67-b5b7-07ef123db6f0">
+    <BuildType Project="Release" />
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="ReControl/ReControl.vcxproj" Id="849039b0-1fdc-4a62-b5dd-d1d342cb9f9a">
+    <Deploy />
+  </Project>
+</Solution>

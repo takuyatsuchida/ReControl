@@ -20,13 +20,13 @@ jobs:
         uses: nuget/setup-nuget@v2
 
       - name: NuGet restore
-        run: nuget restore ReControl.sln
+        run: nuget restore ReControl.slnx
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
       - name: Build solution (Release)
-        run: msbuild ReControl.sln -m -p:Configuration=Release
+        run: msbuild ReControl.slnx -m -p:Configuration=Release
 
       - name: Upload installer
         uses: actions/upload-artifact@v4
